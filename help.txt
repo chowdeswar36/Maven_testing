@@ -1,0 +1,33 @@
+//////////////////////////////////////////////////////////////////////////////////////
+
+This is helped document in which we can work through command prompt by using mvn commands
+<suiteXmlFile>${suiteXmlFile}</suiteXmlFile> 
+		This will run mentioned testng files.
+mvn test -DsuiteXmlFile=testng.xml,testng2.xml---------->this will run specific xml file 
+
+if u want to run more number of xml files
+1.create one more testng.xml file. and mention all testng.xml files over there.
+    <suite-files>
+		<suite-file path="testng1.xml"></suite-file>
+		<suite-file path="testng2.xml"></suite-file>
+	</suite-files>
+2.run that new testng.xml file through command prompt.
+
+////////////////////////////////////////////////////////////////////////////////////////
+
+These below commands are work only if <suiteXmlFile>${suiteXmlFile}</suiteXmlFile> is not their in pom.xml
+	mvn test -DskipTests---------->this will skip all tests through 
+	mvn test -DskipTests=testng2.xml--------->this will skip mentioned tests 
+
+mvn clean package --------->this will build jar file by conducting test in target folder
+
+///////////////////////////////////////////////////////////////////////////
+						<systemPropertyVariables>
+							<username>${username}</username>
+							<password>${password}</password>
+						</systemPropertyVariables>
+the above code is used to send the command line arguments into the test.
+so we can access it through the system.getproperty(give tag name)
+mvn test -suiteXmlFile=testng.xml -Dusername=chowdeswar -Dpassword=12345
+
+///////////////////////////////////////////////////////////////////////////////
